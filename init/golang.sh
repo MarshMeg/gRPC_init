@@ -67,10 +67,7 @@ mkdir -p cmd/server internal/{server,service,db,utils} pkg/{pb,config} api
 
 # 6. Инициализируем go.mod
 echo "Инициализируем go.mod..."
-go mod init "github.com/$(git config user.name)/$PROJECT_NAME" || {
-    # Если не удалось получить имя пользователя из git config
-    go mod init "github.com/unknown/$PROJECT_NAME"
-}
+go mod init "github.com/$(git config user.name)/$PROJECT_NAME"
 
 # 7. Устанавливаем зависимости
 echo "Устанавливаем зависимости..."
@@ -340,4 +337,4 @@ echo "2. Выполните: make run"
 echo ""
 echo "Не забудьте зарегистрировать ваши gRPC сервисы в run.go!"
 
-bash init/del_init.sh
+bash init/del_init.sh github.com/$(git config user.name)/$PROJECT_NAME

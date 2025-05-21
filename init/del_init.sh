@@ -1,3 +1,6 @@
 rm init.sh
-rm -r init README
+rm -rf init README .git
 echo "" > README.md
+
+git init
+git remote add $1
